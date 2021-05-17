@@ -1,5 +1,7 @@
 package com.khatija.groceryapp1.validator;
 
+
+import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
@@ -11,7 +13,7 @@ public class CustomerFormValidator implements Validator {
  
    private EmailValidator emailValidator = EmailValidator.getInstance();
  
-   // This validator only checks for the CustomerForm.
+  
    @Override
    public boolean supports(Class<?> clazz) {
       return clazz == CustomerForm.class;

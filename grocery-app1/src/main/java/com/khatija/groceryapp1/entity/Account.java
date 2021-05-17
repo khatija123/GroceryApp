@@ -32,7 +32,7 @@ public class Account {
 	        this.userName = userName;
 	    }
 	 
-	    public String Password() {
+	    public String getPassword() {
 	        return Password;
 	    }
 	 

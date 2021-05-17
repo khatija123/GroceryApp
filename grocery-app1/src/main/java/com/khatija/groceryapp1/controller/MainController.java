@@ -4,40 +4,42 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
- 
-import org.o7planning.sbshoppingcart.dao.OrderDAO;
-import org.o7planning.sbshoppingcart.dao.ProductDAO;
-import org.o7planning.sbshoppingcart.entity.Product;
-import org.o7planning.sbshoppingcart.form.CustomerForm;
-import org.o7planning.sbshoppingcart.model.CartInfo;
-import org.o7planning.sbshoppingcart.model.CustomerInfo;
-import org.o7planning.sbshoppingcart.model.ProductInfo;
-import org.o7planning.sbshoppingcart.pagination.PaginationResult;
-import org.o7planning.sbshoppingcart.utils.Utils;
-import org.o7planning.sbshoppingcart.validator.CustomerFormValidator;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.khatija.groceryapp1.dao.OrderDao;
+import com.khatija.groceryapp1.dao.ProductDao;
+import com.khatija.groceryapp1.entity.Product;
+import com.khatija.groceryapp1.form.CustomerForm;
+import com.khatija.groceryapp1.model.CartInfo;
+import com.khatija.groceryapp1.model.CustomerInfo;
+import com.khatija.groceryapp1.model.ProductInfo;
+import com.khatija.groceryapp1.pagination.PaginationResult;
+import com.khatija.groceryapp1.utils.Utils;
+import com.khatija.groceryapp1.validator.CustomerFormValidator;
  
 @Controller
 @Transactional
 public class MainController {
  
    @Autowired
-   private OrderDAO orderDAO;
+   private OrderDao orderDAO;
  
    @Autowired
-   private ProductDAO productDAO;
+   private ProductDao productDAO;
  
    @Autowired
    private CustomerFormValidator customerFormValidator;

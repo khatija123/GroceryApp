@@ -19,16 +19,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.khatija.groceryapp1.dao.OrderDao;
+import com.khatija.groceryapp1.dao.ProductDao;
+import com.khatija.groceryapp1.entity.Product;
+import com.khatija.groceryapp1.form.ProductForm;
+import com.khatija.groceryapp1.model.OrderDetailInfo;
+import com.khatija.groceryapp1.model.OrderInfo;
+import com.khatija.groceryapp1.pagination.PaginationResult;
+import com.khatija.groceryapp1.validator.ProductFormValidator;
  
 @Controller
 @Transactional
 public class AdminController {
  
    @Autowired
-   private OrderDAO orderDAO;
+   private OrderDao orderDAO;
  
    @Autowired
-   private ProductDAO productDAO;
+   private ProductDao productDAO;
  
    @Autowired
    private ProductFormValidator productFormValidator;
@@ -141,5 +150,5 @@ public class AdminController {
  
       return "order";
    }
- 
+
 }

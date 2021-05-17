@@ -12,8 +12,13 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.khatija.groceryapp1.entity.Order;
+import com.khatija.groceryapp1.entity.OrderDetails;
 import com.khatija.groceryapp1.entity.Product;
 import com.khatija.groceryapp1.model.CartInfo;
+import com.khatija.groceryapp1.model.CartLineInfo;
+import com.khatija.groceryapp1.model.OrderDetailInfo;
+import com.khatija.groceryapp1.model.OrderInfo;
+import com.khatija.groceryapp1.pagination.PaginationResult;
  
 @Transactional
 @Repository
@@ -59,7 +64,7 @@ public class OrderDao {
         List<CartLineInfo> lines = cartInfo.getCartLines();
  
         for (CartLineInfo line : lines) {
-            OrderDetail detail = new OrderDetail();
+            OrderDetails detail = new OrderDetails();
             detail.setId(UUID.randomUUID().toString());
             detail.setOrder(order);
             detail.setAmount(line.getAmount());
@@ -110,7 +115,7 @@ public class OrderDao {
     public List<OrderDetailInfo> listOrderDetailInfos(String orderId) {
         String sql = "Select new " + OrderDetailInfo.class.getName() //
                 + "(d.id, d.product.code, d.product.name , d.quanity,d.price,d.amount) "//
-                + " from " + OrderDetail.class.getName() + " d "//
+                + " from " + OrderDetails.class.getName() + " d "//
                 + " where d.order.id = :orderId ";
  
         Session session = this.sessionFactory.getCurrentSession();
