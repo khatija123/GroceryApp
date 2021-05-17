@@ -1,5 +1,7 @@
 package com.khatija.groceryapp1.model;
 
+import com.khatija.groceryapp1.form.CustomerForm;
+
 public class CustomerInfo {
 	 
     private String name;
